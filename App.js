@@ -7,7 +7,6 @@ import EventsScreen from "./screens/EventsScreen";
 import ContactsScreen from "./screens/ContactsScreen";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-
 const Tab = createBottomTabNavigator();
 
 export default function App() {
