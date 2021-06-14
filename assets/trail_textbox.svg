@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <linearGradient id="linear-gradient" y1="0.5" x2="0.983" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3179f7"/>
+      <stop offset="1" stop-color="#45bfed"/>
+    </linearGradient>
+    <clipPath id="clip-Trails">
+      <rect width="1080" height="1920"/>
+    </clipPath>
+  </defs>
+  <g id="Trails" clip-path="url(#clip-Trails)">
+    <rect width="1080" height="1920" fill="#fff"/>
+    <rect id="Rectangle_8" data-name="Rectangle 8" width="743" height="292" rx="25" transform="translate(231 186)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
