@@ -3,20 +3,30 @@ import { Text, View, StyleSheet, Image } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 
-
-function HomeScreen( {navigation} ) {
+function HomeScreen({ navigation }) {
   return (
     <View style={styles.main}>
       <span>
-        <FontAwesome style={{paddingRight:100}} name="map-marker" size={99} color="rgba(230, 200, 0, 0.90)" />      
+        <FontAwesome
+          style={{ paddingRight: 100 }}
+          name="map-marker"
+          size={99}
+          color="rgba(230, 200, 0, 0.90)"
+        />
         <Text style={styles.container_top}>SG Trails</Text>
-        <FontAwesome style={{paddingLeft:100}} name="map-marker" size={99} color="rgba(230, 200, 0, 0.90)" />
+        <FontAwesome
+          style={{ paddingLeft: 100 }}
+          name="map-marker"
+          size={99}
+          color="rgba(230, 200, 0, 0.90)"
+        />
       </span>
       <Image
         style={styles.profilePic}
         source={{
-          uri:'https://www.clipartkey.com/mpngs/m/154-1545165_transparent-background-travel-icon-png.png',
-        }}></Image>
+          uri: "https://www.clipartkey.com/mpngs/m/154-1545165_transparent-background-travel-icon-png.png",
+        }}
+      ></Image>
       <Text style={styles.container_bottom}>News Feed</Text>
       <View style={styles.rectangle}></View>
     </View>
@@ -27,7 +37,15 @@ const Stack = createStackNavigator();
 export default function HomeStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen style={{color:""}} name="Home" component={HomeScreen} />
+      <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: "lightyellow" },
+          headerTintColor: "tomato",
+          headerTitleStyle: { fontWeight: "bold" },
+        }}
+        name="Home"
+        component={HomeScreen}
+      />
     </Stack.Navigator>
   );
 }
@@ -58,8 +76,8 @@ const styles = StyleSheet.create({
     height: 130,
     width: 180,
     borderRadius: 100,
-    alignSelf: 'center',
+    alignSelf: "center",
     marginTop: 5,
-    borderColor: 'lightgreen',
+    borderColor: "lightgreen",
   },
 });
