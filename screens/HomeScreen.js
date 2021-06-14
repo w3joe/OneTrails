@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     fontFamily: "Calibri",
   },
   container_bottom: {
-    color: "blue",
+    color: "#6464FF",
     fontWeight: "bold",
     fontFamily: "Papyrus",
     fontStyle: "italic",
@@ -76,6 +76,5 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignSelf: "center",
     marginTop: 5,
-    borderColor: "lightgreen",
   },
 });
