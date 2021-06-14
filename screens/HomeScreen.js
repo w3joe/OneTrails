@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   container_top: {
-    color: "tomato",
+    color: "#FF7F50",
     fontSize: 50,
     fontWeight: "bold",
     fontFamily: "Calibri",
