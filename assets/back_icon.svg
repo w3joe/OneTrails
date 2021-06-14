@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <clipPath id="clip-Help">
+      <rect width="1080" height="1920"/>
+    </clipPath>
+  </defs>
+  <g id="Help" clip-path="url(#clip-Help)">
+    <rect width="1080" height="1920" fill="#fff"/>
+    <line id="Line_7" data-name="Line 7" y1="30" x2="30" transform="translate(61.5 74.5)" fill="none" stroke="#061fc5" stroke-linecap="round" stroke-width="20"/>
+    <line id="Line_8" data-name="Line 8" x2="30" y2="30" transform="translate(61.5 104.5)" fill="none" stroke="#061fc5" stroke-linecap="round" stroke-width="20"/>
+  </g>
+</svg>
