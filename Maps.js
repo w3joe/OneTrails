@@ -8,11 +8,21 @@ const { width, height } = Dimensions.get('window');
 //const destination = {latitude: 37.771707, longitude: -122.4053769};
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBbPSKOHDvHPOZMa_txPfKU0AcC9En23Vg';
 
+const initialRegion = {
+  latitude: 1.3098,
+  longitude: 103.7775,
+  latitudeDelta: 0.005,
+  longitudeDelta: 0.005,
+}
+
 class Maps extends React.Component{
   render(){
     return(
       <View style ={styles.container}>
-       <MapView style = {styles.map}>
+       <MapView
+       style = {styles.map}
+       zoomEnabled={true}
+        initialRegion={initialRegion}>
         <MapViewDirections
           origin={{latitude: 1.3098,
             longitude: 103.7775}}
