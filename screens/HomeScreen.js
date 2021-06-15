@@ -8,7 +8,7 @@ function HomeScreen({ navigation }) {
   return (
     <View style={styles.main}>
       <View style={{ alignSelf: "center" }}>
-        <Text style={styles.container_top}>SG Trails</Text>
+        <Text style={styles.container_top}>OneTrail</Text>
       </View>
       <Image
         style={styles.profilePic}
@@ -54,8 +54,8 @@ export default function HomeStack() {
     <Stack.Navigator>
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: "" },
-          headerTintColor: "",
+          headerStyle: { backgroundColor: "#5464FF" },
+          headerTintColor: "white",
           headerTitleStyle: { fontWeight: "bold" },
         }}
         name="Home"
@@ -72,18 +72,19 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   container_top: {
-    color: "#5454FF",
+    color: "#5464FF",
     fontSize: 50,
     fontWeight: "bold",
-    fontFamily: "Sans-serif",
+    fontFamily: "Times New Roman",
   },
   container_bottom: {
-    color: "#6464FF",
+    color: "#5464FF",
     fontWeight: "bold",
     fontFamily: "Serif",
     fontStyle: "italic",
     fontSize: 30,
     marginTop: 30,
+    marginLeft: 20,
   },
   profilePic: {
     height: 130,
