@@ -1,7 +1,8 @@
-import * as React from "react";
-import { Text, View, StyleSheet, Image, Span } from "react-native";
+import React, { useEffect, useState, Fragment } from "react";
+import { Text, View, StyleSheet, Image } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
+import Tabletop from "tabletop";
 
 function HomeScreen({ navigation }) {
   return (
@@ -14,7 +15,35 @@ function HomeScreen({ navigation }) {
         source={require("./assets/SGTrails_logo.png")}
       ></Image>
       <Text style={styles.container_bottom}>News</Text>
+      <App></App>
     </View>
+  );
+}
+
+function App() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    Tabletop.init({
+      key: "1t8JKEHpJe2B83n2N8FpaMyQkRA1LsEhb1aPUUhq9mgM",
+      simpleSheet: true,
+    })
+      .then((data) => setData(data))
+      .catch((err) => console.warn(err));
+  }, []);
+  const base = Array.from(data);
+
+  return (
+    <>
+      <ul>
+        {base.map((item, i) => (
+          <Fragment key={i}>
+            <li>Title - {item.Title}</li>
+            <li>Description - {item.Description}</li>
+            <br />
+          </Fragment>
+        ))}
+      </ul>
+    </>
   );
 }
 
