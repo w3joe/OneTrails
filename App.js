@@ -21,9 +21,9 @@ export default function App() {
             if (route.name === "Home") {
               iconName = "home";
             } else if (route.name === "Trails") {
-              iconName = "list";
+              iconName = "map-marker";
             } else if (route.name === "Settings") {
-              iconName = focused ? "user" : "user-o";
+              iconName = "cogs";
             }
 
             // You can return any component that you like here!
@@ -32,7 +32,7 @@ export default function App() {
         })}
         tabBarOptions={{
           activeTintColor: "#111ECB",
-          inactiveTintColor: "blue",
+          inactiveTintColor: "black",
         }}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
