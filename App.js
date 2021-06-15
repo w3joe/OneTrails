@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./screens/HomeScreen";
 import EventsScreen from "./screens/EventsScreen";
-import ContactsScreen from "./screens/ContactsScreen";
+import SettingsScreen from "./screens/SettingsScreen";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 const Tab = createBottomTabNavigator();
@@ -20,9 +20,9 @@ export default function App() {
             //Set the icon based on which route it is (name of the tab)
             if (route.name === "Home") {
               iconName = "home";
-            } else if (route.name === "Events") {
+            } else if (route.name === "Trails") {
               iconName = "list";
-            } else if (route.name === "Contacts") {
+            } else if (route.name === "Settings") {
               iconName = focused ? "user" : "user-o";
             }
 
@@ -31,13 +31,13 @@ export default function App() {
           },
         })}
         tabBarOptions={{
-          activeTintColor: "#9474EE",
+          activeTintColor: "#111ECB",
           inactiveTintColor: "blue",
         }}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Events" component={EventsScreen} />
-        <Tab.Screen name="Contacts" component={ContactsScreen} />
+        <Tab.Screen name="Trails" component={EventsScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
