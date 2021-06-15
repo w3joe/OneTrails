@@ -21,6 +21,7 @@ export default function App() {
           <Fragment key={i}>
             <li>Title -- {item.Title}</li>
             <li>Description - {item.Description}</li>
+            <li>Time - {item.Recency}</li>
             <br />
           </Fragment>
         ))}
