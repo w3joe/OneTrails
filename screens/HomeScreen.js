@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import Tabletop from "tabletop";
@@ -39,6 +39,7 @@ function App() {
           <Fragment key={i}>
             <li>Title - {item.Title}</li>
             <li>Description - {item.Description}</li>
+            <li>Time - {item.Recency}</li>
             <br />
           </Fragment>
         ))}
