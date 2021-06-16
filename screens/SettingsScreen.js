@@ -21,8 +21,8 @@ function EventsScreen({ navigation }) {
       </View>
 
       <View style={styles.box3}>
-      <TouchableOpacity  onPress={() => navigation.navigate("Guide")}>
-        <Text style={styles.Text}>Guide</Text>       
+      <TouchableOpacity  onPress={() => navigation.navigate("App Guide")}>
+        <Text style={styles.Text}>App Guide</Text>       
       </TouchableOpacity>
       </View>
       
@@ -38,7 +38,22 @@ function EventsScreen({ navigation }) {
 }
 
 function About() {
-  return <Text>????</Text>;
+  return (
+  <View style={styles.Container}>
+  <Text style={styles.AboutText}>OneTrails is a travel application, designed to bring the world's places of interests to your fingertips without needing an internet connection.
+  The app also regularly provides updates on locations which are open to public in your country. 
+  </Text>
+  
+  <Text style={styles.AboutVersion}>
+  Created by: easyGame
+  Version: 1.0
+  </Text>
+  </View>
+  
+  )
+
+
+
 }
 
 function FAQ() {
@@ -46,7 +61,14 @@ function FAQ() {
 }
 
 function Guide() {
-  return <Text>???</Text>
+  return (
+  <View style={styles.Container}>
+      <Text style={{fontSize:30, padding:5}}>1. In the "Home" tab, the latest news will be updated constantly.</Text>
+      <Text style={{fontSize:30, padding:5}}>2. Select the "Trail" tab to access the variety of trails to choose from.</Text>
+      <Text style={{fontSize:30, padding:5}}>3. Upon selecting each item, a marked map will appear. Clicking on each marker displays a description of the location.</Text>
+      <Text style={{fontSize:30, padding:5}}>4. Start walking and enjoy yourself!!</Text>
+  </View>
+  )
 }
 
 const Stack = createStackNavigator();
@@ -57,7 +79,7 @@ export default function EventsStack() {
       <Stack.Screen name="Settings" component={EventsScreen} />
       <Stack.Screen name="About" component={About} />
       <Stack.Screen name="FAQ" component={FAQ} />
-      <Stack.Screen name="Guide" component={Guide} />
+      <Stack.Screen name="App Guide" component={Guide} />
     </Stack.Navigator>
   );
 }
@@ -67,7 +89,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    backgroundColor: "grey",
+    backgroundColor: "lightblue",
     padding: 5,
     borderRadius: 10,
     
@@ -109,7 +131,18 @@ const styles = StyleSheet.create({
   },
   Space: {
       backgroundColor: 'grey',
-      flex: 8.5
+      flex: 8.5,
 
+  },
+  AboutText: {
+    fontSize: 20,
+    color: 'black',
+    
+  },
+  AboutVersion: {
+    fontSize: 10,
+    color: 'black',
+    position: 'absolute',
+    bottom:0
   }
 });
