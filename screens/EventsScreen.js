@@ -65,8 +65,8 @@ class App extends React.Component{
 
         <Polyline
           coordinates={marker1}
-          strokeColor="#6A1B9A" // fallback for when strokeColors is not supported by the map-provider
-          strokeColors={['#6A1B9A']}
+          strokeColor="yellow" // fallback for when strokeColors is not supported by the map-provider
+          strokeColors={['yellow']}
           strokeWidth={6}
           />
 
