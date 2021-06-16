@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Image,
   ScrollView,
-  FlatList,
+  TouchableOpacity,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -22,7 +22,7 @@ function HomeScreen({ navigation }) {
         source={require("./assets/SGTrails_logo.png")}
       ></Image>
       <Text style={styles.container_bottom}>News Updates</Text>
-      <ScrollView>
+      <ScrollView style={{ backgroundColor: "#BBCBEE" }}>
         <App></App>
       </ScrollView>
     </View>
@@ -69,9 +69,8 @@ export default function HomeStack() {
     <Stack.Navigator>
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: "#5464FF" },
-          headerTintColor: "white",
-          headerTitleStyle: { fontWeight: "bold" },
+          headerStyle: { backgroundColor: "#BBCBEE" },
+          headerTintColor: "black",
         }}
         name="Home"
         component={HomeScreen}
@@ -90,15 +89,15 @@ const styles = StyleSheet.create({
     color: "#5464FF",
     fontSize: 50,
     fontWeight: "bold",
-    fontFamily: "Times New Roman",
+    //fontFamily: "Times New Roman",
   },
   container_bottom: {
     color: "#5464FF",
     fontWeight: "bold",
-    fontFamily: "Serif",
+    //fontFamily: "Serif",
     fontStyle: "italic",
     fontSize: 30,
-    marginTop: 10,
+    marginTop: 100,
     marginLeft: 20,
   },
   profilePic: {
@@ -107,5 +106,10 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     alignSelf: "center",
     marginTop: 5,
+  },
+  button: {
+    alignSelf: "flex-end",
+    backgroundColor: "cyan",
+    borderRadius: 30,
   },
 });
