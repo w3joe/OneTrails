@@ -256,8 +256,8 @@ const styles = StyleSheet.create({
   },
   box1: {
     backgroundColor: "white",
-    padding: 14,
-    //paddingBottom: 15,
+    padding: 13,
+    paddingBottom: 25,
     borderRadius: 10,
     justifyContent: "flex-start",
     marginBottom: 5,
@@ -266,8 +266,8 @@ const styles = StyleSheet.create({
   },
   box2: {
     backgroundColor: "white",
-    padding: 14,
-    //paddingBottom: 50,
+    padding: 10,
+    paddingBottom: 25,
     borderRadius: 10,
     justifyContent: "flex-start",
     marginBottom: 5,
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
 
     padding: 12,
-    //paddingBottom: 70,
+    paddingBottom: 29,
     borderRadius: 10,
     justifyContent: "flex-start",
 
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
   box4: {
     backgroundColor: "white",
     padding: 10,
-    //paddingBottom: 70,
+    paddingBottom: 30,
     borderRadius: 10,
     justifyContent: "flex-start",
     marginBottom: 1,
