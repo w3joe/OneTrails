@@ -311,11 +311,11 @@ const styles = StyleSheet.create({
   },
   Images: {
     borderRadius: 5,
-    width: 300,
-    height:300 ,
+    width: 240,
+    height:240 ,
     alignSelf: "center",
     position: 'absolute',
-    bottom:60
+    bottom:50
     
   },
 });
