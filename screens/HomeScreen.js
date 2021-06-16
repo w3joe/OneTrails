@@ -12,7 +12,6 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import Tabletop from "tabletop";
-import Expo from "expo";
 
 function HomeScreen({ navigation }) {
   return (
