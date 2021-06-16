@@ -40,7 +40,7 @@ function EventsScreen({ navigation }) {
 function About() {
   return (
   <View style={styles.Container}>
-  <Text style={styles.AboutText}>OneTrails is a travel application, designed to bring the world's places of interests to your fingertips without needing an internet connection.
+  <Text style={styles.AboutText}>OneTrail is a travel application, designed to bring the world's places of interests to your fingertips without needing an internet connection.
   The app also regularly provides updates on locations which are open to public in your country. 
   </Text>
   
