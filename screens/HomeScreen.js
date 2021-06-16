@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { Text, View, StyleSheet, Image} from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView, FlatList} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import Tabletop from "tabletop";
@@ -15,7 +15,7 @@ function HomeScreen({ navigation }) {
         source={require("./assets/SGTrails_logo.png")}
       ></Image>
       <Text style={styles.container_bottom}>News</Text>
-      <App></App>
+      <ScrollView><App></App></ScrollView>
     </View>
   );
 }
@@ -36,10 +36,10 @@ function App() {
     <>
         {base.map((item, i) => (
           <Fragment key={i}>
+            <Text>************************************************************</Text>
             <Text style={{fontWeight: "bold"}}>{'\u2192'} Title - {item.Title}</Text>
             <Text style={{fontWeight: "bold"}}>{'\u2192'} Description - {item.Description}</Text>
             <Text style={{fontWeight: "bold"}}>{'\u2192'} Time - {item.Recency}</Text>
-            
           </Fragment>
         ))}
     </>
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     fontFamily: "Serif",
     fontStyle: "italic",
     fontSize: 30,
-    marginTop: 30,
+    marginTop: 10,
     marginLeft: 20,
   },
   profilePic: {
