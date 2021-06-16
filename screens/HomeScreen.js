@@ -1,5 +1,12 @@
 import React, { useEffect, useState, Fragment } from "react";
-import { Text, View, StyleSheet, Image, ScrollView, FlatList} from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Image,
+  ScrollView,
+  FlatList,
+} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import Tabletop from "tabletop";
@@ -15,7 +22,9 @@ function HomeScreen({ navigation }) {
         source={require("./assets/SGTrails_logo.png")}
       ></Image>
       <Text style={styles.container_bottom}>News Updates</Text>
-      <ScrollView><App></App></ScrollView>
+      <ScrollView>
+        <App></App>
+      </ScrollView>
     </View>
   );
 }
@@ -34,14 +43,22 @@ function App() {
 
   return (
     <>
-        {base.map((item, i) => (
-          <Fragment key={i}>
-            <Text>************************************************************</Text>
-            <Text style={{fontWeight: "bold"}}>{'\u2192'} Title - {item.Title}</Text>
-            <Text style={{fontWeight: "bold"}}>{'\u2192'} Description - {item.Description}</Text>
-            <Text style={{fontWeight: "bold"}}>{'\u2192'} Time - {item.Recency}</Text>
-          </Fragment>
-        ))}
+      {base.map((item, i) => (
+        <Fragment key={i}>
+          <Text>
+            ************************************************************
+          </Text>
+          <Text style={{ fontWeight: "bold" }}>
+            {"\u2192"} Title - {item.Title}
+          </Text>
+          <Text style={{ fontWeight: "bold" }}>
+            {"\u2192"} Description - {item.Description}
+          </Text>
+          <Text style={{ fontWeight: "bold" }}>
+            {"\u2192"} Time - {item.Recency}
+          </Text>
+        </Fragment>
+      ))}
     </>
   );
 }
