@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -41,32 +42,45 @@ function test() {
   function renderEncouragingText() {
     if (count >= 10 && count < 20) {
       return "Let's go on a trail!";
-    }
-    if (count >= 20 && count < 30){
+    } else if (count >= 20 && count < 30) {
       return "Stop clicking and start a trail...";
-    }
-    if (count >= 30 && count < 50){
+    } else if (count >= 30 && count < 50) {
       return "Give your finger a rest please!";
-    }
-    if (count >= 50){
+    } else if (count >= 50 && count < 100) {
       return "Why are you still here???";
-    }
+    } else if (count >= 100) return "Congrats! You made it to 100! :)";
   }
 
   return (
-    <View style={{alignSelf:"center"}}>
-      <View style={{backgroundColor:"lightblue"}}>
-      <Text style={{color:"blue", fontSize:40, textAlign:"center", marginTop:50}}>
-        {count}
-      </Text>
-      <Text style={{marginTop:1, alignSelf:"center", color:"green"}}>{renderEncouragingText()}</Text>
-      <TouchableOpacity onPress={buttonPressed} style={styles.buttonClicker}>
-        <Text style={{fontWeight:"bold", fontSize: 40}}> Click Me! </Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonReset} onPress={() => setCount(0)}>
-        <Text style={{fontWeight:"bold", fontSize: 20, alignSelf:"center"}}>Reset</Text>
-      </TouchableOpacity>
-    </View>
+    <View style={{ alignSelf: "center" }}>
+      <View style={{ backgroundColor: "lightblue" }}>
+        <Text
+          style={{
+            color: "blue",
+            fontSize: 40,
+            textAlign: "center",
+            marginTop: 50,
+          }}
+        >
+          {count}
+        </Text>
+        <Text style={{ marginTop: 1, alignSelf: "center", color: "green" }}>
+          {renderEncouragingText()}
+        </Text>
+        <TouchableOpacity onPress={buttonPressed} style={styles.buttonClicker}>
+          <Text style={{ fontWeight: "bold", fontSize: 40 }}> Click Me! </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonReset}
+          onPress={() => setCount(0)}
+        >
+          <Text
+            style={{ fontWeight: "bold", fontSize: 20, alignSelf: "center" }}
+          >
+            Reset
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -90,15 +104,17 @@ function App() {
           <Text>
             ************************************************************
           </Text>
-          <Text style={{ fontWeight: "bold" }}>
-            {"\u2192"} Title - {item.Title}
-          </Text>
-          <Text style={{ fontWeight: "bold" }}>
-            {"\u2192"} Description - {item.Description}
-          </Text>
-          <Text style={{ fontWeight: "bold" }}>
-            {"\u2192"} Time - {item.Recency}
-          </Text>
+          <TouchableOpacity onPress={() => Linking.openURL(item.URL)}>
+            <Text style={{ fontWeight: "bold" }}>
+              {"\u2192"} Title - {item.Title}
+            </Text>
+            <Text style={{ fontWeight: "bold" }}>
+              {"\u2192"} Description - {item.Description}
+            </Text>
+            <Text style={{ fontWeight: "bold" }}>
+              {"\u2192"} Time - {item.Recency}
+            </Text>
+          </TouchableOpacity>
         </Fragment>
       ))}
     </>
@@ -164,5 +180,5 @@ const styles = StyleSheet.create({
     marginTop: 50,
     borderRadius: 50,
     padding: 20,
-  }
+  },
 });

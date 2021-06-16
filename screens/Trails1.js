@@ -34,19 +34,11 @@ class App extends React.Component{
         initialRegion={initialRegion}>
         
         <Polyline
-          coordinates={marker0}
+          coordinates={marker}
           strokeColor="#000" // fallback for when strokeColors is not supported by the map-provider
           strokeColors={['#7F0000']}
           strokeWidth={6}
           />
-
-          <Polyline
-          coordinates={marker1}
-          strokeColor="#000" // fallback for when strokeColors is not supported by the map-provider
-          strokeColors={['#7F0000']}
-          strokeWidth={6}
-          />
-        
         
 
           {marker0[0] != null && marker0.map((marker0, index) => (
@@ -75,6 +67,18 @@ class App extends React.Component{
             ))
           }
 
+          {marker[0] != null && marker.map((marker, index) => (
+            <MapView.Marker
+                key = {index}
+                coordinate = {{
+                    latitude: marker.latitude,
+                    longitude: marker.longitude
+                }}
+                title = { marker.title }
+                description = {marker.desc}
+            />
+            ))
+          }
         </MapView>
         
       </View>
