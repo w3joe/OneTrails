@@ -1,37 +1,57 @@
-import * as React from "react";
-import { Text, View, Button } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from 'react';
+import MapView from 'react-native-maps';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import MapViewDirections from 'react-native-maps-directions';
 
-function EventsScreen({ navigation }) {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "lightblue",
-      }}
-    >
-      <Text>Events!</Text>
-      <Button
-        title="You've won $1MM!!!! CLICK HERE!!!"
-        onPress={() => navigation.navigate("Don't Get Scammed")}
-      />
-    </View>
-  );
+const { width, height } = Dimensions.get('window');
+const GOOGLE_MAPS_APIKEY = 'AIzaSyBbPSKOHDvHPOZMa_txPfKU0AcC9En23Vg';
+const initialRegion = {
+  latitude: 1.3098,
+  longitude: 103.7775,
+  latitudeDelta: 0.005,
+  longitudeDelta: 0.005,
 }
+var marker = [{latitude:0,longitude:0},{latitude:0.005,longitude:0.005}];
+var len = marker.length;
 
-function EventsSecondScreen() {
-  return <Text>Don't get scammed</Text>;
-}
+class App extends React.Component{
+  render(){
+    return(
+      <View style ={styles.container}>
+       <MapView
+        style = {styles.map}
+        zoomEnabled={true}
+        initialRegion={initialRegion}>
+        
+          {marker[0] != null && marker.map((marker, index) => (
+            <MapView.Marker
+                key = {index}
+                coordinate = {{
+                    latitude: marker.latitude,
+                    longitude: marker.longitude
+                }}
+                title = { marker.contactName }
+            />
+            ))
+          }
+        </MapView>
+        
+      </View>
+    )
+  }
+  
+} 
+export default App;
 
-const Stack = createStackNavigator();
-
-export default function EventsStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Trails" component={EventsScreen} />
-      <Stack.Screen name="Don't Get Scammed" component={EventsSecondScreen} />
-    </Stack.Navigator>
-  );
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  map: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  },
+});
