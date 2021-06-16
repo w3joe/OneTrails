@@ -14,7 +14,7 @@ function HomeScreen({ navigation }) {
         style={styles.profilePic}
         source={require("./assets/SGTrails_logo.png")}
       ></Image>
-      <Text style={styles.container_bottom}>News</Text>
+      <Text style={styles.container_bottom}>News Updates</Text>
       <ScrollView><App></App></ScrollView>
     </View>
   );
