@@ -34,16 +34,14 @@ function App() {
 
   return (
     <>
-      <ul>
         {base.map((item, i) => (
           <Fragment key={i}>
-            <li>Title - {item.Title}</li>
-            <li>Description - {item.Description}</li>
-            <li>Time - {item.Recency}</li>
-            <br />
+            <Text style={{fontWeight: "bold"}}>{'\u2192'} Title - {item.Title}</Text>
+            <Text style={{fontWeight: "bold"}}>{'\u2192'} Description - {item.Description}</Text>
+            <Text style={{fontWeight: "bold"}}>{'\u2192'} Time - {item.Recency}</Text>
+            
           </Fragment>
         ))}
-      </ul>
     </>
   );
 }

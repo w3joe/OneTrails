@@ -30,7 +30,7 @@ const Stack = createStackNavigator();
 export default function EventsStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Events" component={EventsScreen} />
+      <Stack.Screen name="Trails" component={EventsScreen} />
       <Stack.Screen name="Don't Get Scammed" component={EventsSecondScreen} />
     </Stack.Navigator>
   );
