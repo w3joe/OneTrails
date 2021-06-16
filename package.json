@@ -30,6 +30,7 @@
     "react-native-screens": "~3.0.0",
     "react-native-web": "~0.13.12",
     "save": "^2.4.0",
+    "react-native-maps": "0.27.1",
     "tabletop": "^1.6.3"
   },
   "devDependencies": {
