@@ -1,5 +1,5 @@
 
-import { Text, View, Button, TouchableOpacity, StyleSheet, Divider, Platform} from "react-native";
+import { Text, View, Button, TouchableOpacity, StyleSheet, Divider, Platform, ToastAndroid, Image} from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import {Permissions} from 'expo'
 import Constants from 'expo-constants';
@@ -18,11 +18,14 @@ Notifications.setNotificationHandler({
 async function schedulePushNotification() {
   await Notifications.scheduleNotificationAsync({
     content: {
-      title: "You've got mail! 📬",
-      body: 'Here is the notification body',
+      title: "Get Ready",
+      body: 'Enjoy a trail today!!',
       data: { data: 'goes here' },
     },
-    trigger: { seconds: 2 },
+    trigger: { 
+      seconds: 60,
+      repeats: true,
+    },
   });
 }
 
@@ -106,25 +109,18 @@ function EventsScreen({ navigation }) {
         <Text style={styles.Text}>App Guide</Text>       
       </TouchableOpacity>
       </View>
+
+      <View style={styles.box4}>
+        <TouchableOpacity style={styles.box} onPress={async () => {await schedulePushNotification(); ToastAndroid.show('Notification has been ON', ToastAndroid.SHORT);}}>
+          <Text style={styles.Text}> ON Notifications</Text>
+        </TouchableOpacity>
+      </View> 
       
       <View style={styles.Space}>
           <View style={styles.Space}></View>   
          </View>
 
-         <View
-        style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'space-around',
-        }}>
-      
-      <Button
-        title="Press to schedule a notification"
-        onPress={async () => {
-          await schedulePushNotification();
-        }}
-      />
-    </View>  
+       
     </View>
 
   );
@@ -136,6 +132,11 @@ function About() {
   <Text style={styles.AboutText}>OneTrails is a travel application, designed to bring the world's places of interests to your fingertips without needing an internet connection.
   The app also regularly provides updates on locations which are open to public in your country. 
   </Text>
+  
+  <Image style={styles.Images}
+       source= {{url: "https://media.istockphoto.com/vectors/tourist-hiking-in-mountains-man-holding-looking-at-map-vector-id824844688?k=6&m=824844688&s=612x612&w=0&h=d5YayoCaek8oE5Auccs_--Y4KBSt-aAimcJa33obEiA="}} 
+  ></Image>
+  
   
   <Text style={styles.AboutVersion}>
   Created by: easyGame
@@ -212,9 +213,9 @@ const styles = StyleSheet.create({
   },
   box1: {
     backgroundColor: 'white',
-    padding: 10,
-    paddingBottom: 15,
-    borderRadius: 20,
+    padding: 7,
+    //paddingBottom: 15,
+    borderRadius: 10,
     justifyContent: 'flex-start',
     marginBottom:5,
     width:'100%',
@@ -222,9 +223,9 @@ const styles = StyleSheet.create({
   },
   box2: {
     backgroundColor: 'white',
-    padding: 10,
+    padding: 7,
     //paddingBottom: 50,
-    borderRadius: 20,
+    borderRadius: 10,
     justifyContent: 'flex-start',
     marginBottom:5,
     width:'100%',
@@ -232,18 +233,29 @@ const styles = StyleSheet.create({
   },
   box3: {
     backgroundColor: 'white',
-    padding: 10,
+    
+    padding: 7,
     //paddingBottom: 70,
-    borderRadius: 20,
+    borderRadius: 10,
     justifyContent: 'flex-start',
   
+    marginBottom:5,
+    width:'100%',
+    flex: 1,
+  },
+  box4: {
+    backgroundColor: 'white',
+    padding: 10,
+    //paddingBottom: 70,
+    borderRadius: 10,
+    justifyContent: 'flex-start',
     marginBottom:1,
     width:'100%',
     flex: 1,
   },
   Space: {
       backgroundColor: 'grey',
-      flex: 8,
+      flex: 8
 
   },
   AboutText: {
@@ -255,7 +267,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: 'black',
     position: 'absolute',
-    bottom:0
+    bottom:0,
+  },
+  Images: {
+    borderRadius: 5,
+    width: 400,
+    height: 380,
+
   }
 });
 
