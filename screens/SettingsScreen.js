@@ -140,19 +140,15 @@ function EventsScreen({ navigation }) {
 function About() {
   return (
     <View style={styles.Container}>
-      <Text style={styles.AboutText}>
-        OneTrail is a travel application, designed to bring the world's places
-        of interests to your fingertips without needing an internet connection.
-        The app also regularly provides updates on locations which are open to
-        public in your country.
-      </Text>
-
       <Image
         style={styles.Images}
-        source={{
-          url: "https://media.istockphoto.com/vectors/tourist-hiking-in-mountains-man-holding-looking-at-map-vector-id824844688?k=6&m=824844688&s=612x612&w=0&h=d5YayoCaek8oE5Auccs_--Y4KBSt-aAimcJa33obEiA=",
-        }}
+        source={require("./assets/SGTrails_logo.png")}
       ></Image>
+      <Text style={styles.AboutText}>
+        {`OneTrail is a travel application, designed to bring the world's places of interests to your fingertips without needing an internet connection.
+        
+The app also regularly provides updates on locations which are open to public in your country.`}
+      </Text>
 
       <Text style={styles.AboutVersion}>Created by: easyGame Version: 1.0</Text>
     </View>
@@ -206,11 +202,14 @@ function Guide() {
         1. In the "Home" tab, the latest news will be updated constantly.
       </Text>
       <Text style={{ fontSize: 25, padding: 5 }}>
-        2. Select the "Trail" tab to access the variety of trails to choose
-        from.
+        2. Select the "Trail" tab to view the available trails on the map.
       </Text>
       <Text style={{ fontSize: 25, padding: 5 }}>
-        3. Start walking and enjoy yourself!!
+        3. Click on each marker to display the name and description of the
+        location.
+      </Text>
+      <Text style={{ fontSize: 25, padding: 5 }}>
+        4. Start walking and enjoy yourself!!
       </Text>
     </View>
   );
@@ -247,12 +246,12 @@ const styles = StyleSheet.create({
   },
   Text: {
     color: "blue",
-    fontSize: 45,
+    fontSize: 35,
     backgroundColor: "transparent",
   },
   Text2: {
     color: "blue",
-    fontSize: 38,
+    fontSize: 35,
     backgroundColor: "transparent",
   },
   box1: {
@@ -260,7 +259,7 @@ const styles = StyleSheet.create({
     padding: 13,
     //paddingBottom: 25,
     borderRadius: 10,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     marginBottom: 5,
     width: "100%",
     flex: 1,
@@ -270,7 +269,7 @@ const styles = StyleSheet.create({
     padding: 10,
     //paddingBottom: 25,
     borderRadius: 10,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     marginBottom: 5,
     width: "100%",
     flex: 1,
@@ -281,7 +280,7 @@ const styles = StyleSheet.create({
     padding: 12,
     //paddingBottom: 20,
     borderRadius: 10,
-    justifyContent: "flex-start",
+    justifyContent: "center",
 
     marginBottom: 5,
     width: "100%",
@@ -290,9 +289,9 @@ const styles = StyleSheet.create({
   box4: {
     backgroundColor: "white",
     padding: 10,
-   // paddingBottom: 30,
+    // paddingBottom: 30,
     borderRadius: 10,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     marginBottom: 1,
     width: "100%",
     flex: 1,
@@ -302,7 +301,8 @@ const styles = StyleSheet.create({
     flex: 8,
   },
   AboutText: {
-    fontSize: 25,
+    marginTop: 50,
+    fontSize: 20,
     color: "black",
   },
   AboutVersion: {
@@ -313,7 +313,9 @@ const styles = StyleSheet.create({
   },
   Images: {
     borderRadius: 5,
-    width: 400,
-    height: 380,
+    width: 200,
+    height: 200,
+    alignSelf: "center",
+    marginTop: 30,
   },
 });
