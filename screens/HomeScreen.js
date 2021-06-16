@@ -27,6 +27,9 @@ function HomeScreen({ navigation }) {
       <Text style={styles.container_bottom}>News Updates</Text>
       <ScrollView style={{ backgroundColor: "#BBCBEE" }}>
         <App></App>
+        <Text>
+          ************************************************************
+        </Text>
       </ScrollView>
     </View>
   );
