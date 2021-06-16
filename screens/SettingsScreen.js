@@ -1,9 +1,90 @@
-import * as React from "react";
-import { Text, View, Button, TouchableOpacity, StyleSheet, Divider} from "react-native";
+
+import { Text, View, Button, TouchableOpacity, StyleSheet, Divider, Platform} from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
+import {Permissions} from 'expo'
+import Constants from 'expo-constants';
+import * as Notifications from 'expo-notifications';
+import React, { useState, useEffect, useRef } from 'react';
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+  }),
+});
+
+
+async function schedulePushNotification() {
+  await Notifications.scheduleNotificationAsync({
+    content: {
+      title: "You've got mail! 📬",
+      body: 'Here is the notification body',
+      data: { data: 'goes here' },
+    },
+    trigger: { seconds: 2 },
+  });
+}
+
+async function registerForPushNotificationsAsync() {
+  let token;
+  if (Constants.isDevice) {
+    const { status: existingStatus } = await Notifications.getPermissionsAsync();
+    let finalStatus = existingStatus;
+    if (existingStatus !== 'granted') {
+      const { status } = await Notifications.requestPermissionsAsync();
+      finalStatus = status;
+    }
+    if (finalStatus !== 'granted') {
+      alert('Failed to get push token for push notification!');
+      return;
+    }
+    token = (await Notifications.getExpoPushTokenAsync()).data;
+    console.log(token);
+  } else {
+    alert('Must use physical device for Push Notifications');
+  }
+
+  if (Platform.OS === 'android') {
+    Notifications.setNotificationChannelAsync('default', {
+      name: 'default',
+      importance: Notifications.AndroidImportance.MAX,
+      vibrationPattern: [0, 250, 250, 250],
+      lightColor: '#FF231F7C',
+    });
+  }
+
+  return token;
+}
 
 
 function EventsScreen({ navigation }) {
+  const [expoPushToken, setExpoPushToken] = useState('');
+  const [notification, setNotification] = useState(false);
+  const notificationListener = useRef();
+  const responseListener = useRef();
+
+  useEffect(() => {
+    registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
+
+    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+      setNotification(notification);
+    });
+
+    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+      console.log(response);
+    });
+
+    return () => {
+      Notifications.removeNotificationSubscription(notificationListener.current);
+      Notifications.removeNotificationSubscription(responseListener.current);
+    };
+  }, []);
+
+
+
+
+
   return (
     
     <View style={styles.Container} >
@@ -27,20 +108,32 @@ function EventsScreen({ navigation }) {
       </View>
       
       <View style={styles.Space}>
-          <View style={styles.Space}></View>
-        
+          <View style={styles.Space}></View>   
          </View>
 
+         <View
+        style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        }}>
+      
+      <Button
+        title="Press to schedule a notification"
+        onPress={async () => {
+          await schedulePushNotification();
+        }}
+      />
+    </View>  
     </View>
-    
-    
+
   );
 }
 
 function About() {
   return (
   <View style={styles.Container}>
-  <Text style={styles.AboutText}>OneTrail is a travel application, designed to bring the world's places of interests to your fingertips without needing an internet connection.
+  <Text style={styles.AboutText}>OneTrails is a travel application, designed to bring the world's places of interests to your fingertips without needing an internet connection.
   The app also regularly provides updates on locations which are open to public in your country. 
   </Text>
   
@@ -57,16 +150,34 @@ function About() {
 }
 
 function FAQ() {
-  return <Text>???</Text>;
+  return (
+  <View style={styles.Container}>
+  <Text style={{fontSize:25, padding:9, color: 'green'}}>1. What is OneTrail for?</Text>
+  <Text style={{fontSize:18}} >OneTrail is an application which compiles all the trails and you will be able to view these trails offline, anytime, anywhere.</Text>
+  
+  <Text style={{fontSize:25, padding:9, color: 'green'}}>2. Why OneTrail?</Text>
+  <Text style={{fontSize:18}}>This application was designed to be simple so that anyone would be able to use it. </Text>
+
+  <Text style={{fontSize:25, padding:9, color: 'green'}}>3. How do I contact the developers for suggestions?</Text>
+  <Text style={{fontSize:18}}>You may contact us through our email: hello@onetrail.sg. We are always open to new suggestions from the community as we believe the users know what they need in this application most.</Text>
+
+  <Text style={{fontSize:25, padding:9, color: 'green'}}>4. Is OneTrail an organisation?</Text>
+  <Text style={{fontSize:18}}>No we are not. We have come together to publish an app which can support users in unprecedented times like the Covid-19 pandemic. If you would like to support us, visit us @onetrail on Instagram.</Text>
+
+
+
+  </View>
+
+  )
 }
 
 function Guide() {
   return (
   <View style={styles.Container}>
-      <Text style={{fontSize:30, padding:5}}>1. In the "Home" tab, the latest news will be updated constantly.</Text>
-      <Text style={{fontSize:30, padding:5}}>2. Select the "Trail" tab to access the variety of trails to choose from.</Text>
-      <Text style={{fontSize:30, padding:5}}>3. Upon selecting each item, a marked map will appear. Clicking on each marker displays a description of the location.</Text>
-      <Text style={{fontSize:30, padding:5}}>4. Start walking and enjoy yourself!!</Text>
+      <Text style={{fontSize:25, padding:5}}>1. In the "Home" tab, the latest news will be updated constantly.</Text>
+      <Text style={{fontSize:25, padding:5}}>2. Select the "Trail" tab to access the variety of trails to choose from.</Text>
+      <Text style={{fontSize:25, padding:5}}>3. Upon selecting each item, a marked map will appear. Clicking on each marker displays a description of the location.</Text>
+      <Text style={{fontSize:25, padding:5}}>4. Start walking and enjoy yourself!!</Text>
   </View>
   )
 }
@@ -125,24 +236,27 @@ const styles = StyleSheet.create({
     //paddingBottom: 70,
     borderRadius: 20,
     justifyContent: 'flex-start',
+  
     marginBottom:1,
     width:'100%',
     flex: 1,
   },
   Space: {
       backgroundColor: 'grey',
-      flex: 8.5,
+      flex: 8,
 
   },
   AboutText: {
-    fontSize: 20,
+    fontSize: 25 ,
     color: 'black',
     
   },
   AboutVersion: {
-    fontSize: 10,
+    fontSize: 15,
     color: 'black',
     position: 'absolute',
     bottom:0
   }
 });
+
+
