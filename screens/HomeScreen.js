@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Linking,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -42,15 +43,17 @@ function test() {
     if (count >= 10 && count < 20) {
       return "Let's go on a trail!";
     }
-    if (count >= 20 && count < 30){
+    else if (count >= 20 && count < 30){
       return "Stop clicking and start a trail...";
     }
-    if (count >= 30 && count < 50){
+    else if (count >= 30 && count < 50){
       return "Give your finger a rest please!";
     }
-    if (count >= 50){
+    else if (count >= 50 && count < 100){
       return "Why are you still here???";
     }
+    else if (count >= 100)
+      return "Congrats! You made it to 100! :)";
   }
 
   return (
@@ -90,6 +93,7 @@ function App() {
           <Text>
             ************************************************************
           </Text>
+          <TouchableOpacity onPress={() => Linking.openURL(item.URL)}>
           <Text style={{ fontWeight: "bold" }}>
             {"\u2192"} Title - {item.Title}
           </Text>
@@ -99,6 +103,7 @@ function App() {
           <Text style={{ fontWeight: "bold" }}>
             {"\u2192"} Time - {item.Recency}
           </Text>
+          </TouchableOpacity>
         </Fragment>
       ))}
     </>
