@@ -7,10 +7,12 @@ import {
   ScrollView,
   TouchableOpacity,
   Linking,
+  DevSettings,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 import Tabletop from "tabletop";
+import Expo from "expo";
 
 function HomeScreen({ navigation }) {
   return (
@@ -28,6 +30,11 @@ function HomeScreen({ navigation }) {
       <Text style={{ marginLeft: 10, fontWeight: "bold", color: "green" }}>
         (click to read full news)
       </Text>
+      <View style={styles.button}>
+        <TouchableOpacity onPress={() => DevSettings.reload()}>
+          <Text style={{fontWeight: "bold"}}>refresh</Text>
+        </TouchableOpacity>
+        </View>
       <ScrollView style={{ backgroundColor: "#BBCBEE" }}>
         <App></App>
         <Text>
