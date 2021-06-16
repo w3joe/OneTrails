@@ -148,11 +148,9 @@ function About() {
       </Text>
 
       <Image
-        style={styles.Images}
-        source={{
-          url: "https://media.istockphoto.com/vectors/tourist-hiking-in-mountains-man-holding-looking-at-map-vector-id824844688?k=6&m=824844688&s=612x612&w=0&h=d5YayoCaek8oE5Auccs_--Y4KBSt-aAimcJa33obEiA=",
-        }}
-      ></Image>
+          style={styles.Images}
+          source={require("./assets/SGTrails_logo.png")}
+        ></Image>
 
       <Text style={styles.AboutVersion}>Created by: easyGame Version: 1.0</Text>
     </View>
@@ -247,12 +245,12 @@ const styles = StyleSheet.create({
   },
   Text: {
     color: "blue",
-    fontSize: 45,
+    fontSize: 35,
     backgroundColor: "transparent",
   },
   Text2: {
     color: "blue",
-    fontSize: 38,
+    fontSize: 30,
     backgroundColor: "transparent",
   },
   box1: {
@@ -313,7 +311,11 @@ const styles = StyleSheet.create({
   },
   Images: {
     borderRadius: 5,
-    width: 400,
-    height: 380,
+    width: 300,
+    height:300 ,
+    alignSelf: "center",
+    position: 'absolute',
+    bottom:60
+    
   },
 });
