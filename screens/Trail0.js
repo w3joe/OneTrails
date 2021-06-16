@@ -6,12 +6,16 @@ import MapViewDirections from 'react-native-maps-directions';
 const { width, height } = Dimensions.get('window');
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBbPSKOHDvHPOZMa_txPfKU0AcC9En23Vg';
 const initialRegion = {
-  latitude: 1.3098,
-  longitude: 103.7775,
-  latitudeDelta: 0.005,
-  longitudeDelta: 0.005,
-}
-var marker = [{latitude:0,longitude:0},{latitude:0.005,longitude:0.005}];
+  latitude: 1.3067074282378992,
+  longitude: 103.84939437733111,
+  latitudeDelta: 0.01,
+  longitudeDelta: 0.01,
+} 
+var marker = [{latitude:1.3080416946421083,longitude:103.85222221683591,title:'Sri Veeramakaliamman Temple'},
+{latitude:1.3071968588745324, longitude:103.85085803253624, title:'Tan Teng Niah'},
+{latitude: 1.307330826911569, longitude: 103.85031515103434, title:'Buffalo Mural'},
+{latitude: 1.3063675793438427, longitude:103.85026206360122, title:'Tekka Center'},
+{latitude:1.3067074282378992, longitude:103.84939437733111, title:'Little India MRT Station'}];
 var len = marker.length;
 
 class App extends React.Component{
@@ -30,7 +34,7 @@ class App extends React.Component{
                     latitude: marker.latitude,
                     longitude: marker.longitude
                 }}
-                title = { marker.contactName }
+                title = { marker.title }
             />
             ))
           }
