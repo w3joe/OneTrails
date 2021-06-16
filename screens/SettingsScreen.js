@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   },
   box1: {
     backgroundColor: 'white',
-    padding: 7,
+    padding: 14,
     //paddingBottom: 15,
     borderRadius: 10,
     justifyContent: 'flex-start',
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
   },
   box2: {
     backgroundColor: 'white',
-    padding: 7,
+    padding: 14,
     //paddingBottom: 50,
     borderRadius: 10,
     justifyContent: 'flex-start',
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
   box3: {
     backgroundColor: 'white',
     
-    padding: 7,
+    padding: 12,
     //paddingBottom: 70,
     borderRadius: 10,
     justifyContent: 'flex-start',
