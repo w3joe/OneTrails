@@ -17,14 +17,56 @@ function HomeScreen({ navigation }) {
       <View style={{ alignSelf: "center" }}>
         <Text style={styles.container_top}>OneTrail</Text>
       </View>
-      <Image
-        style={styles.profilePic}
-        source={require("./assets/SGTrails_logo.png")}
-      ></Image>
+      <TouchableOpacity onPress={() => navigation.navigate("Clicker")}>
+        <Image
+          style={styles.profilePic}
+          source={require("./assets/SGTrails_logo.png")}
+        ></Image>
+      </TouchableOpacity>
       <Text style={styles.container_bottom}>News Updates</Text>
       <ScrollView style={{ backgroundColor: "#BBCBEE" }}>
         <App></App>
       </ScrollView>
+    </View>
+  );
+}
+
+function test() {
+  let [count, setCount] = useState(0);
+
+  function buttonPressed() {
+    setCount(count + 1);
+  }
+
+  function renderEncouragingText() {
+    if (count >= 10 && count < 20) {
+      return "Let's go on a trail!";
+    }
+    if (count >= 20 && count < 30){
+      return "Stop clicking and start a trail...";
+    }
+    if (count >= 30 && count < 50){
+      return "Give your finger a rest please!";
+    }
+    if (count >= 50){
+      return "Why are you still here???";
+    }
+  }
+
+  return (
+    <View style={{alignSelf:"center"}}>
+      <View style={{backgroundColor:"lightblue"}}>
+      <Text style={{color:"blue", fontSize:40, textAlign:"center", marginTop:50}}>
+        {count}
+      </Text>
+      <Text style={{marginTop:1, alignSelf:"center", color:"green"}}>{renderEncouragingText()}</Text>
+      <TouchableOpacity onPress={buttonPressed} style={styles.buttonClicker}>
+        <Text style={{fontWeight:"bold", fontSize: 40}}> Click Me! </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonReset} onPress={() => setCount(0)}>
+        <Text style={{fontWeight:"bold", fontSize: 20, alignSelf:"center"}}>Reset</Text>
+      </TouchableOpacity>
+    </View>
     </View>
   );
 }
@@ -75,6 +117,7 @@ export default function HomeStack() {
         name="Home"
         component={HomeScreen}
       />
+      <Stack.Screen name="Clicker" component={test}></Stack.Screen>
     </Stack.Navigator>
   );
 }
@@ -89,15 +132,13 @@ const styles = StyleSheet.create({
     color: "#5464FF",
     fontSize: 50,
     fontWeight: "bold",
-    //fontFamily: "Times New Roman",
   },
   container_bottom: {
     color: "#5464FF",
     fontWeight: "bold",
-    //fontFamily: "Serif",
     fontStyle: "italic",
     fontSize: 30,
-    marginTop: 100,
+    marginTop: 10,
     marginLeft: 20,
   },
   profilePic: {
@@ -112,4 +153,16 @@ const styles = StyleSheet.create({
     backgroundColor: "cyan",
     borderRadius: 30,
   },
+  buttonClicker: {
+    backgroundColor: "red",
+    marginTop: 100,
+    padding: 20,
+    borderRadius: 50,
+  },
+  buttonReset: {
+    backgroundColor: "yellow",
+    marginTop: 50,
+    borderRadius: 50,
+    padding: 20,
+  }
 });
