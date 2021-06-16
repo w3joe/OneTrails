@@ -126,7 +126,7 @@ function EventsScreen({ navigation }) {
             ToastAndroid.show("Notification has been ON", ToastAndroid.SHORT);
           }}
         >
-          <Text style={styles.Text}>ON Notifications</Text>
+          <Text style={styles.Text2}>ON Notifications</Text>
         </TouchableOpacity>
       </View>
 
@@ -141,7 +141,7 @@ function About() {
   return (
     <View style={styles.Container}>
       <Text style={styles.AboutText}>
-        OneTrails is a travel application, designed to bring the world's places
+        OneTrail is a travel application, designed to bring the world's places
         of interests to your fingertips without needing an internet connection.
         The app also regularly provides updates on locations which are open to
         public in your country.
@@ -254,10 +254,15 @@ const styles = StyleSheet.create({
     fontSize: 45,
     backgroundColor: "transparent",
   },
+  Text2: {
+    color: "blue",
+    fontSize: 38,
+    backgroundColor: "transparent",
+  },
   box1: {
     backgroundColor: "white",
     padding: 13,
-    paddingBottom: 25,
+    //paddingBottom: 25,
     borderRadius: 10,
     justifyContent: "flex-start",
     marginBottom: 5,
@@ -267,7 +272,7 @@ const styles = StyleSheet.create({
   box2: {
     backgroundColor: "white",
     padding: 10,
-    paddingBottom: 25,
+    //paddingBottom: 25,
     borderRadius: 10,
     justifyContent: "flex-start",
     marginBottom: 5,
@@ -278,7 +283,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
 
     padding: 12,
-    paddingBottom: 29,
+    //paddingBottom: 20,
     borderRadius: 10,
     justifyContent: "flex-start",
 
@@ -289,7 +294,7 @@ const styles = StyleSheet.create({
   box4: {
     backgroundColor: "white",
     padding: 10,
-    paddingBottom: 30,
+   // paddingBottom: 30,
     borderRadius: 10,
     justifyContent: "flex-start",
     marginBottom: 1,
