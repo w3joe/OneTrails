@@ -18,13 +18,16 @@ function HomeScreen({ navigation }) {
       <View style={{ alignSelf: "center" }}>
         <Text style={styles.container_top}>OneTrail</Text>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate("Clicker")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Clicker Game")}>
         <Image
           style={styles.profilePic}
           source={require("./assets/SGTrails_logo.png")}
         ></Image>
       </TouchableOpacity>
       <Text style={styles.container_bottom}>News Updates</Text>
+      <Text style={{ marginLeft: 10, fontWeight: "bold", color: "green" }}>
+        (click to read full news)
+      </Text>
       <ScrollView style={{ backgroundColor: "#BBCBEE" }}>
         <App></App>
         <Text>
@@ -56,7 +59,7 @@ function test() {
 
   return (
     <View style={{ alignSelf: "center" }}>
-      <View style={{ backgroundColor: "lightblue" }}>
+      <View>
         <Text
           style={{
             color: "blue",
@@ -67,11 +70,24 @@ function test() {
         >
           {count}
         </Text>
-        <Text style={{ marginTop: 1, alignSelf: "center", color: "green" }}>
+        <Text
+          style={{
+            marginTop: 1,
+            alignSelf: "center",
+            color: "green",
+            fontSize: 20,
+            fontWeight: "bold",
+          }}
+        >
           {renderEncouragingText()}
         </Text>
         <TouchableOpacity onPress={buttonPressed} style={styles.buttonClicker}>
-          <Text style={{ fontWeight: "bold", fontSize: 40 }}> Click Me! </Text>
+          <Text
+            style={{ fontWeight: "bold", fontSize: 40, textAlign: "center" }}
+          >
+            {" "}
+            Click Me!{" "}
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.buttonReset}
@@ -108,13 +124,19 @@ function App() {
             ************************************************************
           </Text>
           <TouchableOpacity onPress={() => Linking.openURL(item.URL)}>
-            <Text style={{ fontWeight: "bold" }}>
+            <Text
+              style={{ fontWeight: "bold", marginLeft: 10, color: "black" }}
+            >
               {"\u2192"} Title - {item.Title}
             </Text>
-            <Text style={{ fontWeight: "bold" }}>
+            <Text
+              style={{ fontWeight: "bold", marginLeft: 10, color: "black" }}
+            >
               {"\u2192"} Description - {item.Description}
             </Text>
-            <Text style={{ fontWeight: "bold" }}>
+            <Text
+              style={{ fontWeight: "bold", marginLeft: 10, color: "black" }}
+            >
               {"\u2192"} Time - {item.Recency}
             </Text>
           </TouchableOpacity>
@@ -136,7 +158,7 @@ export default function HomeStack() {
         name="Home"
         component={HomeScreen}
       />
-      <Stack.Screen name="Clicker" component={test}></Stack.Screen>
+      <Stack.Screen name="Clicker Game" component={test}></Stack.Screen>
     </Stack.Navigator>
   );
 }
@@ -151,14 +173,15 @@ const styles = StyleSheet.create({
     color: "#5464FF",
     fontSize: 50,
     fontWeight: "bold",
+    marginTop: 30,
   },
   container_bottom: {
     color: "#5464FF",
     fontWeight: "bold",
     fontStyle: "italic",
     fontSize: 30,
-    marginTop: 10,
-    marginLeft: 20,
+    marginTop: 80,
+    marginLeft: 10,
   },
   profilePic: {
     height: 130,
