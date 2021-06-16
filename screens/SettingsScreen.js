@@ -210,11 +210,7 @@ function Guide() {
         from.
       </Text>
       <Text style={{ fontSize: 25, padding: 5 }}>
-        3. Upon selecting each item, a marked map will appear. Clicking on each
-        marker displays a description of the location.
-      </Text>
-      <Text style={{ fontSize: 25, padding: 5 }}>
-        4. Start walking and enjoy yourself!!
+        3. Start walking and enjoy yourself!!
       </Text>
     </View>
   );
