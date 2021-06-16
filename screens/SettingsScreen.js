@@ -158,7 +158,7 @@ The app also regularly provides updates on locations which are open to public in
 function FAQ() {
   return (
     <View style={styles.Container}>
-      <Text style={{ fontSize: 25, padding: 9, color: "green" }}>
+      <Text style={{ fontSize: 20, padding: 9, color: "green" }}>
         1. What is OneTrail for?
       </Text>
       <Text style={{ fontSize: 18 }}>
@@ -166,7 +166,7 @@ function FAQ() {
         able to view these trails offline, anytime, anywhere.
       </Text>
 
-      <Text style={{ fontSize: 25, padding: 9, color: "green" }}>
+      <Text style={{ fontSize: 20, padding: 9, color: "green" }}>
         2. Why OneTrail?
       </Text>
       <Text style={{ fontSize: 18 }}>
@@ -174,7 +174,7 @@ function FAQ() {
         to use it.{" "}
       </Text>
 
-      <Text style={{ fontSize: 25, padding: 9, color: "green" }}>
+      <Text style={{ fontSize: 20, padding: 9, color: "green" }}>
         3. How do I contact the developers for suggestions?
       </Text>
       <Text style={{ fontSize: 18 }}>
@@ -183,7 +183,7 @@ function FAQ() {
         what they need in this application most.
       </Text>
 
-      <Text style={{ fontSize: 25, padding: 9, color: "green" }}>
+      <Text style={{ fontSize: 20, padding: 9, color: "green" }}>
         4. Is OneTrail an organisation?
       </Text>
       <Text style={{ fontSize: 18 }}>
