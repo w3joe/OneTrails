@@ -6,10 +6,10 @@ import MapViewDirections from 'react-native-maps-directions';
 const { width, height } = Dimensions.get('window');
 const GOOGLE_MAPS_APIKEY = 'AIzaSyBbPSKOHDvHPOZMa_txPfKU0AcC9En23Vg';
 const initialRegion = {
-  latitude: 1.2835711924428908, 
-  longitude: 103.84446343773878,
-  latitudeDelta: 0.005,
-  longitudeDelta: 0.005,
+  latitude: 1.3646458053494213,
+  longitude: 103.81211035383676,
+  latitudeDelta: 0.25,
+  longitudeDelta: 0.25,
 } 
 var marker0 = [{latitude:1.2815800654159542, longitude:103.84423299435205, title:'Buddha Tooth Relic Temple',desc:'Tang dynasty–style temple housing religious relics'},
               {latitude:1.2827719962663375, longitude: 103.8452524368565, title: 'Sri Mariamman Temple',desc:'Built in 1827, the oldest Hindu temple in Singapore'},
@@ -35,15 +35,15 @@ class App extends React.Component{
         
         <Polyline
           coordinates={marker0}
-          strokeColor="#000" // fallback for when strokeColors is not supported by the map-provider
-          strokeColors={['#7F0000']}
+          strokeColor="#AD1457" // fallback for when strokeColors is not supported by the map-provider
+          strokeColors={['#AD1457']}
           strokeWidth={6}
           />
 
           <Polyline
           coordinates={marker1}
-          strokeColor="#000" // fallback for when strokeColors is not supported by the map-provider
-          strokeColors={['#7F0000']}
+          strokeColor="#6A1B9A" // fallback for when strokeColors is not supported by the map-provider
+          strokeColors={['#6A1B9A']}
           strokeWidth={6}
           />
         
